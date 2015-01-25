@@ -1,4 +1,5 @@
-Getting and Cleaning Data: Course Project
+Getting and Cleaning Data: Course Project - Smartphones Data Set
+
 This set of scripts downloads and tidies the data from the UCI Human Activity Recognition Using Smartphones Data Set.
 
 Dependencies
