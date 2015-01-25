@@ -1,0 +1,13 @@
+source("Download_Data.R") 
+source("Merge_Data.R") 
+source("Average_Data.R") 
+
+# Runs the full analysis: downloading the data,merging the test and train datasets,
+# and producing the new dataset with the average of each variable for each activity on each subject. 
+# Outputs the new dataset at ./averages.txt 
+
+  RunAnalysis <- function() { 
+  DownloadData() 
+  dataset <- AverageData(MergeData()) 
+  write.table(dataset, "./averages.txt", sep=",", quote=FALSE) 
+} 
