@@ -18,6 +18,7 @@ The dataset includes the following files:
 - 'test/y_test.txt': Test labels.
 
 Project Run_Analysis Data
+
 For the purposes of this project analysis we selected the following variables:, subject, activity label and the features for means and standard deviations. 
 The following is a list of all variables has been included in the output:
 
