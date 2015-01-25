@@ -1,0 +1,7 @@
+library(reshape2)
+
+# Create a dataset with the average each activity and subject per variable
+AverageData <- function(dataset) {
+  molten <- melt(dataset, id.vars=c("subject", "activity"))
+  dcast(molten, subject + activity ~ variable, mean)
+}
