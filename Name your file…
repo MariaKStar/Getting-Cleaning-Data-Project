@@ -1,0 +1,42 @@
+# Returns the merged data with tidy names and only the mean/std features
+  MergeData <- function() {
+  # Train data files
+  x_train <- "./UCI HAR Dataset/train/X_train.txt"
+  y_train <- "./UCI HAR Dataset/train/y_train.txt"
+  subject_train<- "./UCI HAR Dataset/train/subject_train.txt"
+  
+  # Test data files
+  x_test <- "./UCI HAR Dataset/test/X_test.txt"
+  y_test <- "./UCI HAR Dataset/test/y_test.txt"
+  subject_test <- "./UCI HAR Dataset/test/subject_test.txt"
+  features_file <- "./UCI HAR Dataset/features.txt"
+  labels_file <-"./UCI HAR Dataset/activity_labels.txt"
+  
+  # The purpose of this function is to create a train and test data sets which will have all the variables:
+  # subject_id, features, activity labels for the data. 
+  # First the function reads the x_train and x_test files.
+  # Enhancing above files by adding the features data (to add descriptive labels), activity labels and subject to the x_train and x_test files. 
+  # add the  then add the label and subject data into a data frame. 
+  #Select only the variables/columns of subject,activity, and variables with the mean() and std() in their label
+  
+  ReadData<- function(xfile, yfile, subjectfile, features_file, labels_file) {
+    data<- read.table(xfile)                   #read the X_file
+    features<-read.table(features_file)        #read the features file
+    features_list<-features[,2]                #select the features column
+    names(dataset) <- features_list            #add the features descriptive labels in the X data
+    data["label"] <- read.table(yfile)         #retrieve the label data from the yfile and add it to the X data
+    data["subject"] <- read.table(subjectfile) #retrieve the subject data from the subject file and add it to the X data
+    labels <- read.table(labels_file)          # read the labels file
+    names(labels) <- c("label", "activity")    #add descriprive labels to the labels file
+    dataset <- merge(data, labels)             # merge the X data with the labels file
+    names(dataset) <- gsub("[^[:alnum:]]", "", tolower(names(dataset))) #edits the variable names by removing the non-alfanumeric characters and downcasting
+    dataset<-dataset[grep("mean\\(\\)|std\\(\\)|activity|subject", names(dataset))]) #create a dataset which has only the variables with mean and std, subject, activity
+  }
+
+# Read the train and test datasets
+  train_data <- ReadData(x_train, y_train, subject_train, features_file, labels_file)
+  test_data <- ReadData(x_test, y_test, subject_test, features_file, labels_file)
+
+# Merge the train and test datasets
+ dataset<-rbind(train_data, test_data)
+}
