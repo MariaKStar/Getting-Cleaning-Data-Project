@@ -1,4 +1,4 @@
-# Download the Human Activity Recognition data set. 
+# Download the Human Activity Recognition dataset 
 # Save the dataset to ./UCI HAR Dataset, unless the./UCI HAR Dataset exists already.
 # Unzip the file. 
 
