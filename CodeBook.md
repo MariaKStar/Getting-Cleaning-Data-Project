@@ -11,7 +11,7 @@ The dataset includes the following files:
 
 - 'README.txt'
 - 'features_info.txt': Shows information about the variables used on the feature vector.
-- 'features.txt': List of all features ( 562 variables)
+- 'features.txt': List of all features 
 - 'train/X_train.txt': Training set.
 - 'train/y_train.txt': Training labels.
 - 'test/X_test.txt': Test set.
