@@ -29,8 +29,8 @@
     labels <- read.table(labels_file)          # read the labels file
     names(labels) <- c("label", "activity")    #add descriprive labels to the labels file
     dataset <- merge(data, labels)             # merge the X data with the labels file
-    names(dataset) <- gsub("[^[:alnum:]]", "", tolower(names(dataset))) #edits and downcases the variable names by removing the non-alfanumeric characters
-    dataset<-dataset[grep("mean\\(\\)|std\\(\\)|activity|subject", names(dataset))]) #create a dataset which has only the variables with mean and std, subject, activity
+    names(dataset) <- gsub("[^[:alnum:]]", "", tolower(names(dataset))) #edits and downcases the variable names 
+    dataset<-dataset[grep("mean\\(\\)|std\\(\\)|activity|subject", names(dataset))]) #create a dataset which has only the variables with mean and std, subject, activity and by removing the non-alfanumeric characters
   }
 
 # Read the train and test datasets
