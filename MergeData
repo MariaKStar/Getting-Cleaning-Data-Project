@@ -14,7 +14,7 @@
   
   # The purpose of this function is to create a train and test data sets which will have all the variables:
   # subject_id, features, activity labels for the data. 
-  # First the function reads the x_train and x_test files.
+  # First, the function reads the x_train and x_test files.
   # Enhancing above files by adding the features data (to add descriptive labels), activity labels and subject to the x_train and x_test files. 
   # add the  then add the label and subject data into a data frame. 
   #Select only the variables/columns of subject,activity, and variables with the mean() and std() in their label
