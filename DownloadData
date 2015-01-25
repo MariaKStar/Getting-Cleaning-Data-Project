@@ -1,0 +1,12 @@
+# Download the Human Activity Recognition data set. 
+# Save the dataset to ./UCI HAR Dataset, unless the./UCI HAR Dataset exists already.
+# Unzip the file. 
+
+DownloadData <- function() {
+  if (!file.exists('./UCI HAR Dataset')) {
+    url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+    file <- file.path(getwd(),"HAR Dataset.zip")
+    download.file(url, file)
+    unzip(file)
+  }
+}
